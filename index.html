@@ -1,288 +1,1326 @@
-
-<h2 class="sr-only">Aperçu de la landing page Amalisa — artisan fleuriste à Vaires-sur-Marne</h2>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amalisa — Artisan Fleuriste · Vaires-sur-Marne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
-.pg{background:#edf1ee;font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;color:#1a1f1b;overflow-x:hidden;}
-.sr{font-family:Georgia,'Palatino Linotype',Palatino,serif;}
-.nav{padding:18px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:0.5px solid #c8d4cc;background:#edf1ee;}
-.nav-logo{font-family:Georgia,serif;font-size:20px;letter-spacing:0.1em;color:#1a1f1b;}
-.nav-links{display:flex;gap:28px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#879d91;}
-.nav-cta{font-size:11px;padding:9px 20px;border:0.5px solid #879d91;color:#5a7068;letter-spacing:0.08em;text-transform:uppercase;background:transparent;cursor:pointer;transition:all 0.25s;}
-.nav-cta:hover{background:#879d91;color:#edf1ee;}
-.hero{min-height:88vh;padding:56px 40px 60px;position:relative;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;overflow:hidden;}
-.hero-badge{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#879d91;margin-bottom:28px;display:flex;align-items:center;gap:12px;}
-.hero-badge::before{content:'';display:block;width:28px;height:0.5px;background:#879d91;}
-.hero-title{font-family:Georgia,serif;font-size:clamp(44px,5.5vw,72px);line-height:1.05;letter-spacing:-0.02em;color:#1a1f1b;margin-bottom:24px;font-weight:normal;animation:enterUp 1.2s cubic-bezier(0.22,1,0.36,1) 0.2s both;}
-.hero-title em{color:#879d91;font-style:italic;}
-.hero-sub{font-size:14px;color:#4a5549;line-height:1.8;max-width:340px;margin-bottom:40px;animation:enterUp 1.2s cubic-bezier(0.22,1,0.36,1) 0.4s both;}
-.hero-cta{display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#edf1ee;background:#879d91;padding:14px 32px;cursor:pointer;border:none;animation:enterUp 1.2s cubic-bezier(0.22,1,0.36,1) 0.6s both;transition:background 0.25s;}
-.hero-cta:hover{background:#5a7068;}
-.hero-right{position:relative;display:flex;justify-content:flex-end;align-items:flex-start;padding-top:32px;animation:enterUp 1.4s cubic-bezier(0.22,1,0.36,1) 0.3s both;}
-.hero-portrait{width:300px;height:420px;background:#879d91;position:relative;display:flex;align-items:flex-end;padding:20px;}
-.hero-portrait-lbl{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(237,241,238,0.5);}
-.hero-float{position:absolute;top:-16px;left:-52px;background:#edf1ee;padding:18px 22px;border:0.5px solid #c8d4cc;z-index:2;}
-.hero-float .num{font-family:Georgia,serif;font-size:40px;color:#879d91;line-height:1;}
-.hero-float .lbl{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#4a5549;margin-top:4px;}
-.hero-scroll{position:absolute;bottom:40px;left:40px;display:flex;align-items:center;gap:10px;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#879d91;}
-.scroll-line{width:0.5px;height:32px;background:#879d91;animation:scrollPulse 2s infinite;}
-@keyframes scrollPulse{0%,100%{opacity:1;transform:scaleY(1);}50%{opacity:0.3;transform:scaleY(0.6);}}
-.herb-bg{position:absolute;bottom:0;left:0;opacity:0.07;pointer-events:none;}
-@keyframes enterUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
-.sep{height:0.5px;background:#c8d4cc;margin:0 40px;}
-.story{padding:100px 40px;display:grid;grid-template-columns:3fr 2fr;gap:64px;align-items:start;}
-.sec-num{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#879d91;margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0.7;}
-.sec-num::before{content:'01';}
-.story-title{font-family:Georgia,serif;font-size:clamp(30px,3.5vw,48px);line-height:1.1;color:#1a1f1b;font-weight:normal;margin-bottom:28px;}
-.story-p{font-size:14px;line-height:1.95;color:#4a5549;margin-bottom:18px;}
-.story-img{width:100%;aspect-ratio:4/5;background:#879d91;margin-top:60px;display:flex;align-items:flex-end;padding:20px;}
-.story-img-lbl{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(237,241,238,0.5);}
-.elis{background:#879d91;padding:100px 40px;position:relative;overflow:hidden;}
-.elis-bg{position:absolute;right:-32px;top:50%;transform:translateY(-50%);font-family:Georgia,serif;font-size:280px;color:rgba(90,112,104,0.25);line-height:1;pointer-events:none;font-weight:normal;user-select:none;}
-.elis-grid{display:grid;grid-template-columns:260px 1fr;gap:64px;align-items:start;position:relative;z-index:2;}
-.elis-portrait{width:260px;height:340px;background:rgba(237,241,238,0.12);border:0.5px solid rgba(237,241,238,0.25);display:flex;align-items:center;justify-content:center;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(237,241,238,0.4);}
-.elis-lbl{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(237,241,238,0.55);margin-bottom:14px;}
-.elis-name{font-family:Georgia,serif;font-size:44px;color:#edf1ee;font-weight:normal;margin-bottom:6px;}
-.elis-role{font-family:Georgia,serif;font-style:italic;font-size:17px;color:rgba(237,241,238,0.65);margin-bottom:44px;}
-.elis-p{font-size:14px;line-height:1.95;color:rgba(237,241,238,0.78);margin-bottom:20px;}
-.qt{padding:80px 40px;background:#edf1ee;text-align:center;}
-.qt-mark{font-family:Georgia,serif;font-size:100px;color:#c8d4cc;line-height:0.6;display:block;margin-bottom:32px;}
-.qt-text{font-family:Georgia,serif;font-style:italic;font-size:clamp(20px,2.8vw,32px);color:#1a1f1b;line-height:1.55;max-width:560px;margin:0 auto 24px;font-weight:normal;}
-.qt-author{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#879d91;}
-.gal{padding:100px 40px;}
-.gal-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:20px;}
-.gal-title{font-family:Georgia,serif;font-size:36px;color:#1a1f1b;font-weight:normal;}
-.gal-sub{font-size:13px;color:#879d91;margin-top:8px;}
-.filters{display:flex;gap:6px;flex-wrap:wrap;}
-.fbtn{padding:7px 16px;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;border:0.5px solid #879d91;color:#4a5549;background:transparent;cursor:pointer;transition:all 0.2s;}
-.fbtn.on{background:#879d91;color:#edf1ee;}
-.fbtn:hover:not(.on){background:rgba(135,157,145,0.1);}
-.ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
-.gi{background:#879d91;position:relative;overflow:hidden;cursor:pointer;transition:transform 0.3s ease;}
-.gi:hover{transform:scale(1.01);}
-.gi:nth-child(1){aspect-ratio:3/4;background:#879d91;}
-.gi:nth-child(2){aspect-ratio:4/5;background:#6d8880;}
-.gi:nth-child(3){aspect-ratio:1/1;background:#9dada5;}
-.gi:nth-child(4){aspect-ratio:3/4;background:#7d9489;}
-.gi:nth-child(5){aspect-ratio:4/3;background:#879d91;}
-.gi:nth-child(6){aspect-ratio:1/1;background:#6d8880;}
-.gi-lbl{position:absolute;bottom:14px;left:14px;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(237,241,238,0.45);}
-.gi-overlay{position:absolute;inset:0;background:rgba(26,31,27,0);transition:background 0.3s;display:flex;align-items:center;justify-content:center;}
-.gi:hover .gi-overlay{background:rgba(26,31,27,0.12);}
-.ats{padding:100px 40px;background:#d9e4df;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
-.soon-pill{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border:0.5px solid #879d91;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#879d91;margin-bottom:28px;}
-.soon-dot{width:5px;height:5px;border-radius:50%;background:#879d91;animation:pulse 2s infinite;}
-@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.25;}}
-.ats-title{font-family:Georgia,serif;font-size:38px;color:#1a1f1b;font-weight:normal;margin-bottom:20px;}
-.ats-p{font-size:14px;line-height:1.95;color:#4a5549;margin-bottom:16px;}
-.ats-cta{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#879d91;padding:12px 28px;border:0.5px dashed #879d91;opacity:0.65;margin-top:12px;}
-.ats-visual{display:flex;align-items:center;justify-content:center;}
-.cta-sec{background:#5a7068;padding:96px 40px;text-align:center;}
-.cta-eye{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(237,241,238,0.55);margin-bottom:20px;}
-.cta-title{font-family:Georgia,serif;font-size:clamp(36px,4vw,56px);color:#edf1ee;font-weight:normal;margin-bottom:14px;}
-.cta-sub{font-size:14px;color:rgba(237,241,238,0.65);margin-bottom:52px;}
-.cta-btn{display:inline-flex;align-items:center;gap:14px;font-family:Georgia,serif;font-size:18px;color:#5a7068;background:#edf1ee;padding:22px 52px;cursor:pointer;border:none;transition:transform 0.2s;}
-.cta-btn:hover{transform:scale(1.02);}
-.cta-details{margin-top:56px;display:flex;justify-content:center;gap:48px;font-size:12px;color:rgba(237,241,238,0.55);}
-.cta-detail{display:flex;flex-direction:column;gap:6px;text-align:left;}
-.cta-detail strong{color:rgba(237,241,238,0.85);font-weight:400;}
-.cta-hrs{margin-top:36px;font-size:11px;color:rgba(237,241,238,0.4);letter-spacing:0.06em;}
-.ftr{background:#3d5048;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;font-size:10px;color:rgba(237,241,238,0.35);letter-spacing:0.08em;}
-.fade{opacity:0;transform:translateY(32px);transition:opacity 0.9s cubic-bezier(0.22,1,0.36,1),transform 0.9s cubic-bezier(0.22,1,0.36,1);}
-.fade.d1{transition-delay:0.1s;}
-.fade.d2{transition-delay:0.2s;}
-.fade.d3{transition-delay:0.3s;}
-.fade.vis{opacity:1;transform:translateY(0);}
-.font-note{background:#879d91;color:#edf1ee;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;text-align:center;padding:8px;opacity:0.85;}
+
+/* ─── RESET & ROOT ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream:      #edf1ee;
+  --cream-warm: #e8ede9;
+  --sage:       #879d91;
+  --sage-mid:   #6d8880;
+  --sage-dark:  #5a7068;
+  --sage-deep:  #3d5048;
+  --sage-light: #b8ccc4;
+  --sage-pale:  #d9e4df;
+  --ink:        #1a1f1b;
+  --ink-mid:    #2e3630;
+  --ink-soft:   #4a5549;
+  --ink-muted:  #7a8c7e;
+  --border:     #c8d4cc;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--ink);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ─── CUSTOM CURSOR ─────────────────────────────────────────── */
+#cursor {
+  position: fixed;
+  top: 0; left: 0;
+  width: 10px; height: 10px;
+  background: var(--sage);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s ease, height 0.25s ease, background 0.25s ease, opacity 0.25s ease;
+  mix-blend-mode: multiply;
+}
+
+#cursor.large {
+  width: 44px; height: 44px;
+  background: transparent;
+  border: 1px solid var(--sage);
+}
+
+/* ─── TYPOGRAPHY ─────────────────────────────────────────────── */
+.serif { font-family: 'Cormorant Garamond', 'Georgia', serif; }
+.serif-it { font-family: 'Cormorant Garamond', 'Georgia', serif; font-style: italic; }
+
+/* ─── NAVBAR ─────────────────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 60px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s ease, border-color 0.4s ease;
+  border-bottom: 0.5px solid transparent;
+}
+
+nav.scrolled {
+  background: rgba(237, 241, 238, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom-color: var(--border);
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--ink); }
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  font-weight: 400;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-cta {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sage-dark);
+  border: 0.5px solid var(--sage);
+  background: transparent;
+  padding: 10px 24px;
+  cursor: none;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.nav-cta:hover {
+  background: var(--sage);
+  color: var(--cream);
+}
+
+/* ─── SCROLL ANIMATIONS ──────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(44px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.d1 { transition-delay: 0.1s; }
+.reveal.d2 { transition-delay: 0.22s; }
+.reveal.d3 { transition-delay: 0.38s; }
+.reveal.d4 { transition-delay: 0.52s; }
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── SECTION LABEL ──────────────────────────────────────────── */
+.section-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.section-eyebrow::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 0.5px;
+  background: var(--sage);
+  flex-shrink: 0;
+}
+
+/* ─── HERO ───────────────────────────────────────────────────── */
+#hero {
+  min-height: 100vh;
+  padding: 72px 60px 80px;
+  display: grid;
+  grid-template-columns: 1fr 440px;
+  gap: 0;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-botanical {
+  position: absolute;
+  bottom: -40px;
+  left: -20px;
+  opacity: 0.055;
+  pointer-events: none;
+  animation: botanicalDraw 3s ease forwards;
+}
+
+@keyframes botanicalDraw {
+  from { opacity: 0; }
+  to { opacity: 0.055; }
+}
+
+.hero-left {
+  padding-right: 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 40px;
+  animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.hero-badge::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 0.5px;
+  background: var(--sage);
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(56px, 7vw, 96px);
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  font-weight: 300;
+  margin-bottom: 36px;
+  animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--sage);
+  font-weight: 300;
+}
+
+.hero-subtitle {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  max-width: 400px;
+  margin-bottom: 56px;
+  animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: var(--sage);
+  padding: 18px 40px;
+  border: none;
+  cursor: none;
+  transition: background 0.3s ease, gap 0.3s ease;
+  animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+
+.hero-cta:hover { background: var(--sage-dark); gap: 22px; }
+
+.hero-cta svg { transition: transform 0.3s ease; }
+.hero-cta:hover svg { transform: translateX(4px); }
+
+.hero-right {
+  position: relative;
+  animation: fadeUp 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
+.hero-portrait-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.hero-portrait {
+  width: 100%;
+  height: 580px;
+  background: var(--sage);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 28px;
+}
+
+.hero-portrait-caption {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(237, 241, 238, 0.45);
+}
+
+.hero-float-card {
+  position: absolute;
+  top: 48px;
+  left: -52px;
+  background: var(--cream);
+  border: 0.5px solid var(--border);
+  padding: 22px 28px;
+  z-index: 3;
+}
+
+.hero-float-card .big-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px;
+  line-height: 1;
+  color: var(--sage);
+  font-weight: 300;
+}
+
+.hero-float-card .num-label {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-top: 6px;
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 60px;
+  left: 60px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sage);
+  animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;
+}
+
+.scroll-line {
+  width: 0.5px;
+  height: 40px;
+  background: var(--sage);
+  transform-origin: top;
+  animation: scrollGrow 2.5s ease-in-out infinite;
+}
+
+@keyframes scrollGrow {
+  0%, 100% { transform: scaleY(1); opacity: 1; }
+  50% { transform: scaleY(0.4); opacity: 0.4; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── SEPARATOR ──────────────────────────────────────────────── */
+.sep {
+  height: 0.5px;
+  background: var(--border);
+  margin: 0 60px;
+}
+
+/* ─── SECTION: STORY ─────────────────────────────────────────── */
+#story {
+  padding: 140px 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: start;
+}
+
+.story-content { padding-top: 8px; }
+
+.story-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4.5vw, 60px);
+  line-height: 1.06;
+  color: var(--ink);
+  font-weight: 300;
+  margin-bottom: 36px;
+  letter-spacing: -0.01em;
+}
+
+.story-text {
+  font-size: 15px;
+  line-height: 1.95;
+  color: var(--ink-soft);
+  margin-bottom: 22px;
+  max-width: 480px;
+}
+
+.story-image-wrap {
+  margin-top: 80px;
+  position: relative;
+}
+
+.story-image {
+  width: 100%;
+  aspect-ratio: 4/5;
+  background: var(--sage);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+}
+
+.story-image-caption {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(237, 241, 238, 0.45);
+}
+
+.story-image-offset {
+  position: absolute;
+  top: -24px;
+  right: -24px;
+  width: 100px;
+  height: 100px;
+  border: 0.5px solid var(--border);
+  z-index: -1;
+}
+
+/* ─── SECTION: ELISABETH ─────────────────────────────────────── */
+#elisabeth {
+  background: var(--sage);
+  padding: 140px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.elis-watermark {
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 380px;
+  color: rgba(74, 100, 90, 0.22);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  font-weight: 300;
+  letter-spacing: -0.05em;
+}
+
+.elis-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 80px;
+  align-items: start;
+  position: relative;
+  z-index: 2;
+}
+
+.elis-portrait {
+  width: 320px;
+  height: 420px;
+  background: rgba(237, 241, 238, 0.1);
+  border: 0.5px solid rgba(237, 241, 238, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(237, 241, 238, 0.35);
+}
+
+.elis-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(237, 241, 238, 0.55);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.elis-eyebrow::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 0.5px;
+  background: rgba(237, 241, 238, 0.4);
+  flex-shrink: 0;
+}
+
+.elis-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px;
+  color: var(--cream);
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.elis-role {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: rgba(237, 241, 238, 0.6);
+  margin-bottom: 52px;
+  font-weight: 300;
+}
+
+.elis-text {
+  font-size: 15px;
+  line-height: 1.95;
+  color: rgba(237, 241, 238, 0.78);
+  margin-bottom: 24px;
+  max-width: 520px;
+}
+
+/* ─── SECTION: QUOTE ─────────────────────────────────────────── */
+#quote {
+  padding: 120px 60px;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.quote-ornament {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 160px;
+  color: var(--sage-light);
+  line-height: 0.5;
+  display: block;
+  margin-bottom: 48px;
+  font-weight: 300;
+  opacity: 0.6;
+}
+
+.quote-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(24px, 3.5vw, 42px);
+  color: var(--ink);
+  line-height: 1.45;
+  max-width: 700px;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  margin-bottom: 36px;
+}
+
+.quote-author {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sage);
+}
+
+/* botanical line divider */
+.floral-divider {
+  margin: 0 auto;
+  display: block;
+  opacity: 0.35;
+}
+
+/* ─── SECTION: GALLERY ───────────────────────────────────────── */
+#gallery {
+  padding: 140px 60px;
+  background: var(--cream);
+}
+
+.gallery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.gallery-title-group {}
+
+.gallery-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  color: var(--ink);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+}
+
+.gallery-subtitle {
+  font-size: 14px;
+  color: var(--sage);
+  margin-top: 10px;
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.filter-group {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-btn {
+  padding: 9px 20px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 0.5px solid var(--sage);
+  color: var(--ink-soft);
+  background: transparent;
+  cursor: none;
+  transition: all 0.25s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background: var(--sage);
+  color: var(--cream);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  cursor: none;
+  background: var(--sage);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.gallery-item.hidden { opacity: 0.2; transform: scale(0.97); }
+
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 31, 27, 0);
+  transition: background 0.35s ease;
+}
+
+.gallery-item:hover::after {
+  background: rgba(26, 31, 27, 0.14);
+}
+
+.gallery-item:nth-child(1) { aspect-ratio: 3/4; background: #879d91; }
+.gallery-item:nth-child(2) { aspect-ratio: 4/5; background: #6d8880; }
+.gallery-item:nth-child(3) { aspect-ratio: 1/1; background: #9db0a8; }
+.gallery-item:nth-child(4) { aspect-ratio: 3/4; background: #7d9489; }
+.gallery-item:nth-child(5) { aspect-ratio: 4/3; background: #879d91; }
+.gallery-item:nth-child(6) { aspect-ratio: 1/1; background: #6d8880; }
+
+.gi-label {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(237, 241, 238, 0.45);
+  z-index: 2;
+}
+
+.gi-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(237, 241, 238, 0.2);
+}
+
+/* ─── SECTION: ATELIERS ──────────────────────────────────────── */
+#ateliers {
+  padding: 140px 60px;
+  background: var(--sage-pale);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.soon-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  border: 0.5px solid var(--sage);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sage-dark);
+  margin-bottom: 32px;
+}
+
+.pulse-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--sage);
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.7); }
+}
+
+.ateliers-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4vw, 52px);
+  color: var(--ink);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin-bottom: 28px;
+}
+
+.ateliers-text {
+  font-size: 15px;
+  line-height: 1.95;
+  color: var(--ink-soft);
+  margin-bottom: 20px;
+}
+
+.ateliers-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sage);
+  padding: 14px 30px;
+  border: 0.5px dashed var(--sage);
+  margin-top: 16px;
+  opacity: 0.6;
+}
+
+.ateliers-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── SECTION: CONTACT ───────────────────────────────────────── */
+#contact {
+  background: var(--sage-dark);
+  padding: 120px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-botanical {
+  position: absolute;
+  top: 0; right: 0;
+  opacity: 0.06;
+  pointer-events: none;
+  transform: rotate(180deg);
+}
+
+.contact-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(237, 241, 238, 0.5);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.contact-eyebrow::before,
+.contact-eyebrow::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 0.5px;
+  background: rgba(237, 241, 238, 0.3);
+}
+
+.contact-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 5vw, 72px);
+  color: var(--cream);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+
+.contact-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: rgba(237, 241, 238, 0.6);
+  margin-bottom: 60px;
+  font-weight: 300;
+}
+
+.contact-phone-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  color: var(--sage-dark);
+  background: var(--cream);
+  padding: 24px 60px;
+  border: none;
+  cursor: none;
+  letter-spacing: 0.04em;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
+  font-weight: 400;
+}
+
+.contact-phone-btn:hover {
+  transform: scale(1.03);
+  background: #f5f8f5;
+}
+
+.contact-info-grid {
+  display: flex;
+  justify-content: center;
+  gap: 64px;
+  margin-top: 64px;
+  flex-wrap: wrap;
+}
+
+.contact-info-item {
+  text-align: left;
+}
+
+.contact-info-label {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(237, 241, 238, 0.45);
+  margin-bottom: 8px;
+}
+
+.contact-info-value {
+  font-size: 14px;
+  color: rgba(237, 241, 238, 0.8);
+  letter-spacing: 0.02em;
+}
+
+.contact-hours {
+  margin-top: 56px;
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.contact-hours-item {
+  text-align: center;
+}
+
+.contact-hours-day {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(237, 241, 238, 0.4);
+  margin-bottom: 6px;
+}
+
+.contact-hours-time {
+  font-size: 14px;
+  color: rgba(237, 241, 238, 0.7);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+}
+
+/* ─── FOOTER ─────────────────────────────────────────────────── */
+footer {
+  background: var(--sage-deep);
+  padding: 22px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-copy {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(237, 241, 238, 0.3);
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  letter-spacing: 0.15em;
+  color: rgba(237, 241, 238, 0.4);
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(237, 241, 238, 0.3);
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: rgba(237, 241, 238, 0.6); }
+
+/* ─── SCROLLBAR ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--sage-light); border-radius: 2px; }
+
 </style>
+</head>
+<body>
 
-<div class="pg">
-<div class="font-note">Aperçu · La font Recoleta sera utilisée en production — Georgia ici comme substitut</div>
+<!-- Custom Cursor -->
+<div id="cursor"></div>
 
-<nav class="nav">
+<!-- ══ NAVBAR ═══════════════════════════════════════════════════ -->
+<nav id="navbar">
   <div class="nav-links">
-    <span>Créations</span>
-    <span>À propos</span>
-    <span>Contact</span>
+    <a href="#gallery">Créations</a>
+    <a href="#elisabeth">À propos</a>
+    <a href="#contact">Contact</a>
   </div>
-  <div class="nav-logo sr">Amalisa</div>
+  <div class="nav-logo serif">Amalisa</div>
   <button class="nav-cta">Nous appeler</button>
 </nav>
 
-<section class="hero">
-  <svg class="herb-bg" width="380" height="460" viewBox="0 0 380 460" fill="none">
-    <path d="M40 460 Q70 360 110 310 Q155 255 130 160 Q108 80 168 30" stroke="#879d91" stroke-width="1.2"/>
-    <path d="M130 160 Q168 140 192 118" stroke="#879d91" stroke-width="0.7"/>
-    <path d="M110 310 Q78 292 98 272" stroke="#879d91" stroke-width="0.7"/>
-    <ellipse cx="192" cy="112" rx="18" ry="11" fill="none" stroke="#879d91" stroke-width="0.7" transform="rotate(-25 192 112)"/>
-    <ellipse cx="98" cy="269" rx="13" ry="8" fill="none" stroke="#879d91" stroke-width="0.7" transform="rotate(18 98 269)"/>
-    <path d="M168 30 Q195 25 210 40" stroke="#879d91" stroke-width="0.6"/>
-    <ellipse cx="212" cy="43" rx="9" ry="6" fill="none" stroke="#879d91" stroke-width="0.6" transform="rotate(-10 212 43)"/>
+<!-- ══ HERO ══════════════════════════════════════════════════════ -->
+<section id="hero">
+
+  <!-- Botanical background SVG -->
+  <svg class="hero-botanical" width="560" height="600" viewBox="0 0 560 600" fill="none">
+    <path d="M60 590 Q100 470 148 400 Q205 318 175 210 Q148 118 230 48" stroke="#879d91" stroke-width="1.4"/>
+    <path d="M175 210 Q225 186 258 158" stroke="#879d91" stroke-width="0.9"/>
+    <path d="M148 400 Q102 378 124 350" stroke="#879d91" stroke-width="0.9"/>
+    <ellipse cx="262" cy="152" rx="22" ry="14" fill="none" stroke="#879d91" stroke-width="0.9" transform="rotate(-22 262 152)"/>
+    <ellipse cx="124" cy="347" rx="17" ry="11" fill="none" stroke="#879d91" stroke-width="0.9" transform="rotate(16 124 347)"/>
+    <path d="M230 48 Q262 38 280 55" stroke="#879d91" stroke-width="0.7"/>
+    <ellipse cx="283" cy="58" rx="12" ry="7" fill="none" stroke="#879d91" stroke-width="0.7" transform="rotate(-8 283 58)"/>
+    <path d="M175 280 Q140 258 158 238" stroke="#879d91" stroke-width="0.7"/>
+    <ellipse cx="156" cy="235" rx="10" ry="7" fill="none" stroke="#879d91" stroke-width="0.7" transform="rotate(12 156 235)"/>
+    <circle cx="262" cy="152" r="3" fill="#879d91" opacity="0.4"/>
+    <circle cx="124" cy="347" r="2.5" fill="#879d91" opacity="0.4"/>
+    <circle cx="283" cy="58" r="2" fill="#879d91" opacity="0.3"/>
   </svg>
 
-  <div>
+  <div class="hero-left">
     <div class="hero-badge">Artisan Fleuriste · Vaires-sur-Marne</div>
-    <h1 class="hero-title sr">L'art de dire<br><em>ce qui ne<br>se dit pas.</em></h1>
-    <p class="hero-sub">Créations florales artisanales, pensées pour vous — au cœur de Vaires-sur-Marne.</p>
-    <button class="hero-cta">
+
+    <h1 class="hero-title serif">
+      L'art de dire<br>
+      <em>ce qui ne<br>se dit pas.</em>
+    </h1>
+
+    <p class="hero-subtitle">
+      Créations florales artisanales, sur-mesure et pensées pour vous — au cœur de Vaires-sur-Marne.
+    </p>
+
+    <button class="hero-cta" onclick="window.location.href='tel:+33666101239'">
       Nous appeler
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#edf1ee" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M2.5 7.5h11M9 3.5l4.5 4-4.5 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </button>
   </div>
 
   <div class="hero-right">
-    <div class="hero-float">
-      <div class="num sr">30</div>
-      <div class="lbl">ans d'expérience</div>
-    </div>
-    <div class="hero-portrait">
-      <span class="hero-portrait-lbl">Portrait Elisabeth →</span>
+    <div class="hero-portrait-wrap">
+      <div class="hero-portrait">
+        <span class="hero-portrait-caption">Portrait Elisabeth →</span>
+      </div>
+      <div class="hero-float-card">
+        <div class="big-num serif">30</div>
+        <div class="num-label">ans d'expérience</div>
+      </div>
     </div>
   </div>
 
-  <div class="hero-scroll">
+  <div class="hero-scroll-indicator">
     <div class="scroll-line"></div>
     Découvrir
   </div>
+
 </section>
 
 <div class="sep"></div>
 
-<section class="story">
-  <div>
-    <div class="sec-num fade"> La genèse</div>
-    <h2 class="story-title sr fade d1">Une boutique<br>qui manquait.</h2>
-    <p class="story-p fade d1">À Vaires-sur-Marne, il n'existait nulle part où offrir des fleurs avec soin. Nulle part où une main experte puisse transformer une émotion en bouquet. Elisabeth a vu ce vide non comme un marché, mais comme une évidence.</p>
-    <p class="story-p fade d2">Amalisa est née de cette conviction simple : les gens d'ici méritent aussi le beau. Un lieu où chaque création raconte une histoire, où chaque bouquet porte une intention précise.</p>
-    <p class="story-p fade d2">Pas une simple boutique. Un atelier vivant, ancré dans sa communauté, ouvert à tous les moments qui méritent d'être célébrés.</p>
+<!-- ══ STORY ═════════════════════════════════════════════════════ -->
+<section id="story">
+
+  <div class="story-content">
+    <div class="section-eyebrow reveal">La genèse</div>
+    <h2 class="story-title serif reveal d1">Une boutique<br>qui manquait.</h2>
+    <p class="story-text reveal d1">
+      À Vaires-sur-Marne, il n'existait nulle part où offrir des fleurs avec soin. Nulle part où une main experte puisse transformer une émotion en bouquet. Elisabeth a vu ce vide non comme un marché, mais comme une évidence.
+    </p>
+    <p class="story-text reveal d2">
+      Amalisa est née de cette conviction simple : les gens d'ici méritent aussi le beau. Un lieu où chaque création raconte une histoire, où chaque bouquet porte une intention précise.
+    </p>
+    <p class="story-text reveal d2">
+      Pas une simple boutique. Un atelier vivant, ancré dans sa communauté, ouvert à tous les moments qui méritent d'être célébrés.
+    </p>
   </div>
+
   <div>
-    <div class="story-img fade d3">
-      <span class="story-img-lbl">Photo locale →</span>
+    <div class="story-image-wrap reveal d3">
+      <div class="story-image">
+        <span class="story-image-caption">Photo de la boutique →</span>
+      </div>
+      <div class="story-image-offset"></div>
     </div>
   </div>
+
 </section>
 
-<section class="elis">
-  <div class="elis-bg sr" aria-hidden="true">30</div>
+<!-- ══ ELISABETH ══════════════════════════════════════════════════ -->
+<section id="elisabeth">
+  <div class="elis-watermark" aria-hidden="true">30</div>
+
   <div class="elis-grid">
-    <div class="elis-portrait fade">Portrait</div>
-    <div class="fade d1">
-      <div class="elis-lbl">La fondatrice</div>
-      <h2 class="elis-name sr">Elisabeth Rodrigues</h2>
-      <p class="elis-role sr">Fleuriste. Trente ans de création.</p>
-      <p class="elis-p">Pendant trente ans, Elisabeth a œuvré dans les adresses qui comptent. Là où chaque détail a un prix, là où l'ordinaire n'existe pas — les palaces, les tables d'exception, les intérieurs où rien n'est laissé au hasard.</p>
-      <p class="elis-p">Ce qu'elle apporte n'est pas qu'un savoir-faire technique. C'est une capacité rare : comprendre ce qu'une personne veut dire sans les mots, et le traduire en quelque chose de vivant.</p>
-      <p class="elis-p">Après les palaces, les salons, les dîners d'exception — elle avait envie d'une boutique où on se souvient de votre prénom.</p>
+    <div class="elis-portrait reveal">
+      Portrait
+    </div>
+
+    <div>
+      <div class="elis-eyebrow reveal">La fondatrice</div>
+      <h2 class="elis-name serif reveal d1">Elisabeth Rodrigues</h2>
+      <p class="elis-role reveal d1">Fleuriste. Trente ans de création.</p>
+
+      <p class="elis-text reveal d2">
+        Pendant trente ans, Elisabeth a œuvré dans les adresses qui comptent. Là où chaque détail a un prix, là où l'ordinaire n'existe pas — les palaces, les tables d'exception, les intérieurs où rien n'est laissé au hasard.
+      </p>
+      <p class="elis-text reveal d2">
+        Ce qu'elle apporte n'est pas qu'un savoir-faire technique. C'est une capacité rare : comprendre ce qu'une personne veut dire sans les mots, et le traduire en quelque chose de vivant.
+      </p>
+      <p class="elis-text reveal d3">
+        Après les palaces, les salons, les tables d'exception — elle avait envie d'une boutique où on se souvient de votre prénom.
+      </p>
     </div>
   </div>
 </section>
 
-<section class="qt">
-  <span class="qt-mark sr" aria-hidden="true">"</span>
-  <blockquote class="qt-text sr fade">"Je n'ai jamais créé deux bouquets identiques.<br>Parce que je n'ai jamais rencontré deux personnes identiques."</blockquote>
-  <cite class="qt-author fade d1">— Elisabeth Rodrigues, Amalisa</cite>
+<!-- ══ QUOTE ══════════════════════════════════════════════════════ -->
+<section id="quote">
+
+  <svg class="floral-divider" width="120" height="32" viewBox="0 0 120 32" fill="none" style="margin-bottom: 56px;">
+    <path d="M10 16 Q30 6 60 16 Q90 26 110 16" stroke="#879d91" stroke-width="0.8"/>
+    <circle cx="60" cy="16" r="3" fill="#879d91" opacity="0.5"/>
+    <circle cx="20" cy="14" r="2" fill="#879d91" opacity="0.3"/>
+    <circle cx="100" cy="14" r="2" fill="#879d91" opacity="0.3"/>
+  </svg>
+
+  <blockquote class="quote-text serif reveal">
+    "Je n'ai jamais créé deux bouquets identiques.<br>
+    Parce que je n'ai jamais rencontré deux personnes identiques."
+  </blockquote>
+  <cite class="quote-author reveal d1">— Elisabeth Rodrigues, Amalisa</cite>
+
+  <svg class="floral-divider" width="120" height="32" viewBox="0 0 120 32" fill="none" style="margin-top: 56px;">
+    <path d="M10 16 Q30 26 60 16 Q90 6 110 16" stroke="#879d91" stroke-width="0.8"/>
+    <circle cx="60" cy="16" r="3" fill="#879d91" opacity="0.5"/>
+    <circle cx="20" cy="18" r="2" fill="#879d91" opacity="0.3"/>
+    <circle cx="100" cy="18" r="2" fill="#879d91" opacity="0.3"/>
+  </svg>
+
 </section>
 
 <div class="sep"></div>
 
-<section class="gal">
-  <div class="gal-hdr">
-    <div>
-      <h2 class="gal-title sr fade">Quelques créations</h2>
-      <p class="gal-sub fade d1">Un aperçu de ce que nous pouvons créer ensemble.</p>
+<!-- ══ GALLERY ═══════════════════════════════════════════════════ -->
+<section id="gallery">
+
+  <div class="gallery-header">
+    <div class="gallery-title-group">
+      <div class="section-eyebrow reveal">Portfolio</div>
+      <h2 class="gallery-title serif reveal d1">Quelques créations</h2>
+      <p class="gallery-subtitle reveal d2">Un aperçu de ce que nous pouvons créer ensemble.</p>
     </div>
-    <div class="filters fade d1">
-      <button class="fbtn on" onclick="filterGal(this,'all')">Tous</button>
-      <button class="fbtn" onclick="filterGal(this,'bouquet')">Bouquets</button>
-      <button class="fbtn" onclick="filterGal(this,'compo')">Compositions</button>
-      <button class="fbtn" onclick="filterGal(this,'deco')">Décoration</button>
+    <div class="filter-group reveal d2">
+      <button class="filter-btn active" data-filter="all">Tous</button>
+      <button class="filter-btn" data-filter="bouquet">Bouquets</button>
+      <button class="filter-btn" data-filter="compo">Compositions</button>
+      <button class="filter-btn" data-filter="deco">Décoration</button>
     </div>
   </div>
-  <div class="ggrid" id="ggrid">
-    <div class="gi fade" data-cat="bouquet"><div class="gi-overlay"></div><div class="gi-lbl">Bouquet</div></div>
-    <div class="gi fade d1" data-cat="compo"><div class="gi-overlay"></div><div class="gi-lbl">Composition</div></div>
-    <div class="gi fade d2" data-cat="deco"><div class="gi-overlay"></div><div class="gi-lbl">Décoration</div></div>
-    <div class="gi fade d1" data-cat="bouquet"><div class="gi-overlay"></div><div class="gi-lbl">Bouquet</div></div>
-    <div class="gi fade d2" data-cat="compo"><div class="gi-overlay"></div><div class="gi-lbl">Composition</div></div>
-    <div class="gi fade d3" data-cat="deco"><div class="gi-overlay"></div><div class="gi-lbl">Décoration</div></div>
+
+  <div class="gallery-grid" id="galleryGrid">
+    <div class="gallery-item reveal" data-cat="bouquet">
+      <div class="gi-placeholder">Photo à venir</div>
+      <div class="gi-label">Bouquet</div>
+    </div>
+    <div class="gallery-item reveal d1" data-cat="compo">
+      <div class="gi-placeholder">Photo à venir</div>
+      <div class="gi-label">Composition</div>
+    </div>
+    <div class="gallery-item reveal d2" data-cat="deco">
+      <div class="gi-placeholder">Photo à venir</div>
+      <div class="gi-label">Décoration</div>
+    </div>
+    <div class="gallery-item reveal d1" data-cat="bouquet">
+      <div class="gi-placeholder">Photo à venir</div>
+      <div class="gi-label">Bouquet</div>
+    </div>
+    <div class="gallery-item reveal d2" data-cat="compo">
+      <div class="gi-placeholder">Photo à venir</div>
+      <div class="gi-label">Composition</div>
+    </div>
+    <div class="gallery-item reveal d3" data-cat="deco">
+      <div class="gi-placeholder">Photo à venir</div>
+      <div class="gi-label">Décoration</div>
+    </div>
   </div>
-  <p style="text-align:center;margin-top:40px;font-size:11px;color:#879d91;letter-spacing:0.08em;text-transform:uppercase;opacity:0.7;">↑ Vos photos s'afficheront ici</p>
+
+  <p style="text-align:center; margin-top:48px; font-size:11px; color:var(--sage); letter-spacing:0.1em; text-transform:uppercase; opacity:0.6;">
+    Vos photos remplaceront ces espaces
+  </p>
+
 </section>
 
-<section class="ats">
-  <div class="fade">
-    <div class="soon-pill"><div class="soon-dot"></div>Bientôt disponible</div>
-    <h2 class="ats-title sr">Les ateliers<br>Amalisa.</h2>
-    <p class="ats-p">Apprendre à créer, les mains dans les fleurs. En petits groupes, dans l'ambiance de l'atelier, vous apprendrez les gestes qui font naître un bouquet. Vous repartirez avec votre création.</p>
-    <p class="ats-p">L'expertise d'Elisabeth, transmise simplement. Les premières sessions ouvrent bientôt.</p>
-    <div class="ats-cta">
-      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="2" y="3.5" width="9" height="8" rx="1" stroke="#879d91" stroke-width="0.8"/><path d="M5 3.5V2.5a1.5 1.5 0 0 1 3 0v1" stroke="#879d91" stroke-width="0.8"/></svg>
+<!-- ══ ATELIERS ═══════════════════════════════════════════════════ -->
+<section id="ateliers">
+
+  <div class="reveal">
+    <div class="soon-badge">
+      <div class="pulse-dot"></div>
+      Bientôt disponible
+    </div>
+
+    <h2 class="ateliers-title serif">Les ateliers<br>Amalisa.</h2>
+
+    <p class="ateliers-text">
+      Apprendre à créer, les mains dans les fleurs. En petits groupes, dans l'ambiance chaleureuse de l'atelier, vous apprendrez les gestes qui font naître un bouquet — et vous repartirez avec votre création.
+    </p>
+    <p class="ateliers-text">
+      L'expertise d'Elisabeth, transmise simplement. Les premières sessions ouvrent bientôt.
+    </p>
+
+    <div class="ateliers-cta">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <rect x="2" y="4" width="10" height="9" rx="1" stroke="currentColor" stroke-width="0.8"/>
+        <path d="M5 4V3a2 2 0 0 1 4 0v1" stroke="currentColor" stroke-width="0.8"/>
+      </svg>
       Inscriptions bientôt ouvertes
     </div>
   </div>
-  <div class="ats-visual fade d2">
-    <svg width="240" height="280" viewBox="0 0 240 280" fill="none">
-      <path d="M120 260 Q120 200 120 165" stroke="#879d91" stroke-width="1.2"/>
-      <path d="M120 230 Q88 212 70 185 Q80 177 97 190 Q110 203 120 218" stroke="#879d91" stroke-width="0.9" fill="#d9e4df"/>
-      <path d="M120 218 Q144 190 164 172 Q155 163 140 174 Q128 187 120 205" stroke="#879d91" stroke-width="0.9" fill="#d9e4df"/>
-      <path d="M120 185 Q96 162 82 136 Q93 128 107 143 Q116 158 120 175" stroke="#879d91" stroke-width="0.9" fill="#c8d4cc"/>
-      <path d="M120 175 Q140 148 156 132 Q148 122 134 133 Q123 148 120 165" stroke="#879d91" stroke-width="0.9" fill="#c8d4cc"/>
-      <circle cx="120" cy="155" r="16" fill="#879d91" opacity="0.25"/>
-      <circle cx="120" cy="155" r="10" fill="#879d91" opacity="0.4"/>
-      <circle cx="120" cy="155" r="5" fill="#879d91" opacity="0.85"/>
-      <circle cx="73" cy="183" r="3.5" fill="#879d91" opacity="0.45"/>
-      <circle cx="162" cy="170" r="3.5" fill="#879d91" opacity="0.45"/>
-      <circle cx="84" cy="134" r="2.5" fill="#879d91" opacity="0.35"/>
-      <circle cx="154" cy="130" r="2.5" fill="#879d91" opacity="0.35"/>
+
+  <div class="ateliers-visual reveal d2">
+    <svg width="280" height="320" viewBox="0 0 280 320" fill="none">
+      <!-- Tige principale -->
+      <path d="M140 300 Q140 240 140 195" stroke="#879d91" stroke-width="1.4"/>
+      <!-- Feuilles gauche -->
+      <path d="M140 255 Q104 238 84 210 Q96 200 114 216 Q128 232 140 245" stroke="#879d91" stroke-width="1" fill="#d9e4df"/>
+      <!-- Feuilles droite -->
+      <path d="M140 240 Q168 210 188 185 Q178 174 160 186 Q146 200 140 218" stroke="#879d91" stroke-width="1" fill="#d9e4df"/>
+      <!-- Feuilles gauche hautes -->
+      <path d="M140 210 Q110 190 94 164 Q106 155 121 169 Q132 184 140 200" stroke="#879d91" stroke-width="1" fill="#c8d4cc"/>
+      <!-- Feuilles droite hautes -->
+      <path d="M140 200 Q162 172 178 154 Q170 143 155 155 Q143 168 140 185" stroke="#879d91" stroke-width="1" fill="#c8d4cc"/>
+      <!-- Corolle -->
+      <circle cx="140" cy="182" r="20" fill="rgba(135,157,145,0.2)"/>
+      <circle cx="140" cy="182" r="13" fill="rgba(135,157,145,0.35)"/>
+      <circle cx="140" cy="182" r="7" fill="#879d91" opacity="0.8"/>
+      <!-- Petites fleurs latérales -->
+      <circle cx="80" cy="207" r="4" fill="#879d91" opacity="0.4"/>
+      <circle cx="186" cy="183" r="4" fill="#879d91" opacity="0.4"/>
+      <circle cx="91" cy="162" r="3" fill="#879d91" opacity="0.3"/>
+      <circle cx="177" cy="152" r="3" fill="#879d91" opacity="0.3"/>
+      <!-- Petits bourgeons -->
+      <ellipse cx="80" cy="207" rx="5" ry="7" fill="none" stroke="#879d91" stroke-width="0.7" transform="rotate(-20 80 207)"/>
+      <ellipse cx="186" cy="183" rx="5" ry="7" fill="none" stroke="#879d91" stroke-width="0.7" transform="rotate(15 186 183)"/>
     </svg>
   </div>
+
 </section>
 
-<section class="cta-sec">
-  <p class="cta-eye">Venez nous voir ou passez un coup de fil</p>
-  <h2 class="cta-title sr fade">Chaque fleur<br>a son histoire.</h2>
-  <p class="cta-sub fade d1">Parlons de la vôtre.</p>
-  <button class="cta-btn sr fade d2">
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.5 3.5h3l1.5 3.5-2 2A10 10 0 0 0 11.5 14.5l2-2 3.5 1.5v3A2 2 0 0 1 15 19C7.5 19 1 12.5 1 5A2 2 0 0 1 3 3v0.5z" fill="#879d91"/></svg>
+<!-- ══ CONTACT ════════════════════════════════════════════════════ -->
+<section id="contact">
+
+  <!-- Botanical background -->
+  <svg class="contact-botanical" width="400" height="500" viewBox="0 0 400 500" fill="none">
+    <path d="M60 590 Q100 470 148 400 Q205 318 175 210 Q148 118 230 48" stroke="#edf1ee" stroke-width="1.4"/>
+    <path d="M175 210 Q225 186 258 158" stroke="#edf1ee" stroke-width="0.9"/>
+    <path d="M148 400 Q102 378 124 350" stroke="#edf1ee" stroke-width="0.9"/>
+    <ellipse cx="262" cy="152" rx="22" ry="14" fill="none" stroke="#edf1ee" stroke-width="0.9" transform="rotate(-22 262 152)"/>
+    <ellipse cx="124" cy="347" rx="17" ry="11" fill="none" stroke="#edf1ee" stroke-width="0.9" transform="rotate(16 124 347)"/>
+  </svg>
+
+  <div class="contact-eyebrow reveal">Venez nous voir ou passez un coup de fil</div>
+
+  <h2 class="contact-title serif reveal d1">
+    Chaque fleur<br>a son histoire.
+  </h2>
+
+  <p class="contact-subtitle reveal d2">Parlons de la vôtre.</p>
+
+  <button class="contact-phone-btn reveal d2" onclick="window.location.href='tel:+33666101239'">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <path d="M4 2h3.5l1.5 4-2.25 2.25A11.5 11.5 0 0 0 13.75 14.25L16 12l4 1.5v3.5A2 2 0 0 1 18 19C9.163 19 2 11.837 2 3A2 2 0 0 1 4 1v1z" fill="var(--sage)" stroke="var(--sage)" stroke-width="0.3"/>
+    </svg>
     06 66 10 12 39
   </button>
-  <div class="cta-details fade d2">
-    <div class="cta-detail">
-      <span>Adresse</span>
-      <strong>2 rue de la Gare, Vaires-sur-Marne 77360</strong>
+
+  <div class="contact-info-grid reveal d3">
+    <div class="contact-info-item">
+      <div class="contact-info-label">Adresse</div>
+      <div class="contact-info-value">2 rue de la Gare<br>Vaires-sur-Marne 77360</div>
     </div>
-    <div class="cta-detail">
-      <span>Email</span>
-      <strong>contact@amalisa.fr</strong>
+    <div class="contact-info-item">
+      <div class="contact-info-label">Email</div>
+      <div class="contact-info-value">contact@amalisa.fr</div>
+    </div>
+    <div class="contact-info-item">
+      <div class="contact-info-label">Site</div>
+      <div class="contact-info-value">amalisa.fr</div>
     </div>
   </div>
-  <p class="cta-hrs fade d3">Lun–Ven &nbsp;9h–13h · 15h–19h30 &nbsp;·&nbsp; Samedi &nbsp;9h–20h &nbsp;·&nbsp; Dimanche &nbsp;9h–13h</p>
+
+  <div class="contact-hours reveal d3">
+    <div class="contact-hours-item">
+      <div class="contact-hours-day">Lun — Ven</div>
+      <div class="contact-hours-time serif">9h – 13h · 15h – 19h30</div>
+    </div>
+    <div class="contact-hours-item">
+      <div class="contact-hours-day">Samedi</div>
+      <div class="contact-hours-time serif">9h – 20h</div>
+    </div>
+    <div class="contact-hours-item">
+      <div class="contact-hours-day">Dimanche</div>
+      <div class="contact-hours-time serif">9h – 13h</div>
+    </div>
+  </div>
+
 </section>
 
-<footer class="ftr">
-  <span>© 2025 Amalisa · Artisan Fleuriste</span>
-  <span>Vaires-sur-Marne 77360</span>
-  <span>Mentions légales</span>
+<!-- ══ FOOTER ═════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-copy">© 2025 Amalisa · Artisan Fleuriste</div>
+  <div class="footer-logo serif">Amalisa</div>
+  <div class="footer-links">
+    <a href="#">Mentions légales</a>
+    <a href="#">Vaires-sur-Marne 77360</a>
+  </div>
 </footer>
-</div>
 
+<!-- ══ SCRIPTS ════════════════════════════════════════════════════ -->
 <script>
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('vis'); });
-}, {threshold:0.12});
-document.querySelectorAll('.fade').forEach(el => obs.observe(el));
 
-function filterGal(btn, cat) {
-  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('on'));
-  btn.classList.add('on');
-  document.querySelectorAll('.gi').forEach(gi => {
-    if(cat === 'all' || gi.dataset.cat === cat) {
-      gi.style.opacity = '1';
-      gi.style.transform = '';
-    } else {
-      gi.style.opacity = '0.25';
-      gi.style.transform = 'scale(0.97)';
+/* ── Cursor ─────────────────────────────────────── */
+const cursor = document.getElementById('cursor');
+let mx = 0, my = 0, cx = 0, cy = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+});
+
+function animateCursor() {
+  cx += (mx - cx) * 0.12;
+  cy += (my - cy) * 0.12;
+  cursor.style.left = cx + 'px';
+  cursor.style.top  = cy + 'px';
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+document.querySelectorAll('a, button, .gallery-item, .filter-btn').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('large'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('large'));
+});
+
+/* ── Scroll reveal ──────────────────────────────── */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
     }
   });
-}
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* ── Navbar scroll ──────────────────────────────── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+/* ── Gallery filter ─────────────────────────────── */
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    const filter = this.dataset.filter;
+
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      if (filter === 'all' || item.dataset.cat === filter) {
+        item.classList.remove('hidden');
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+  });
+});
+
 </script>
+</body>
+</html>
