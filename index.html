@@ -277,7 +277,7 @@ nav.scrolled {
 }
 .story-img-wrap { margin-top: 80px; position: relative; }
 .story-img {
-  width: 100%; aspect-ratio: 4/5; background: var(--sage);
+  width: 100%; aspect-ratio: 16/9; background: var(--sage);
   overflow: hidden; position: relative;
   display: flex; align-items: flex-end; padding: 24px;
 }
@@ -293,6 +293,18 @@ nav.scrolled {
   position: absolute; top: -24px; right: -24px;
   width: 100px; height: 100px; border: .5px solid var(--border); z-index: -1;
 }
+
+/* ── Ruban ouverture ─────────────────────────────────────────── */
+.ribbon-wrap {
+  position: absolute;
+  bottom: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  z-index: 4;
+  filter: drop-shadow(0 4px 12px rgba(26,31,27,.18));
+}
+.ribbon-svg { width: 100%; height: auto; display: block; }
 
 /* ─── ELISABETH ──────────────────────────────────────────────── */
 #elisabeth { background: var(--sage); padding: 140px 60px; overflow: hidden; }
@@ -361,14 +373,6 @@ nav.scrolled {
   font-family: 'Cormorant Garamond', serif; font-style: italic;
   font-size: 17px; color: var(--sage); margin-top: 10px;
 }
-.filters { display: flex; gap: 8px; }
-.fbtn {
-  padding: 9px 20px; font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
-  border: .5px solid var(--sage); color: var(--ink-soft); background: transparent;
-  cursor: none; transition: background .25s, color .25s;
-}
-.fbtn:hover, .fbtn.active { background: var(--sage); color: var(--cream); }
-
 .gallery-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
 
 /* Bouquets — tous identiques 3/4 */
@@ -384,8 +388,6 @@ nav.scrolled {
 .gi:hover::after { background: rgba(26,31,27,.12); }
 
 .gi[data-cat="bouquet"] { aspect-ratio: 3/4; }
-.gi[data-cat="compo"]   { aspect-ratio: 4/5; }
-.gi[data-cat="deco"]    { aspect-ratio: 4/3; }
 
 .gi img {
   position: absolute; inset: 0; width: 100%; height: 100%;
@@ -648,8 +650,9 @@ footer { background: var(--sage-deep); }
   .story-title { font-size: clamp(32px, 9vw, 48px); }
   .story-text  { max-width: 100%; font-size: 14px; }
   .story-img-wrap  { margin-top: 0; }
-  .story-img       { aspect-ratio: 4/3; }
+  .story-img       { aspect-ratio: 16/9; }
   .story-img-corner { display: none; }
+  .ribbon-wrap { width: 80vw; max-width: 300px; bottom: -18px; }
 
   /* ── Elisabeth ────────────────────────────────────────────── */
   #elisabeth { padding: 72px 24px; }
@@ -672,9 +675,7 @@ footer { background: var(--sage-deep); }
 
   /* 2 colonnes, ratios uniformes sur mobile */
   .gallery-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .gi[data-cat="bouquet"],
-  .gi[data-cat="compo"],
-  .gi[data-cat="deco"] { aspect-ratio: 3/4; }
+  .gi { aspect-ratio: 3/4; }
 
   /* ── Ateliers ─────────────────────────────────────────────── */
   #ateliers { grid-template-columns: 1fr; padding: 72px 24px; gap: 40px; }
@@ -853,6 +854,30 @@ footer { background: var(--sage-deep); }
       <div class="story-img">
         <span class="story-img-caption">La boutique, 2 rue de la Gare</span>
       </div>
+      <!-- Ruban ouverture -->
+      <div class="ribbon-wrap" aria-label="Ouverture le 6 mai 2026">
+        <svg class="ribbon-svg" viewBox="0 0 320 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Corps du ruban -->
+          <path d="M0 20 Q8 0 20 0 L300 0 Q312 0 320 20 L320 44 Q312 64 300 64 L20 64 Q8 64 0 44 Z"
+                fill="#879d91"/>
+          <!-- Oreilles gauche -->
+          <path d="M0 20 Q-18 32 0 44" fill="#5a7068"/>
+          <!-- Oreilles droite -->
+          <path d="M320 20 Q338 32 320 44" fill="#5a7068"/>
+          <!-- Liseré haut -->
+          <path d="M20 8 L300 8" stroke="rgba(237,241,238,.25)" stroke-width=".8"/>
+          <!-- Liseré bas -->
+          <path d="M20 56 L300 56" stroke="rgba(237,241,238,.25)" stroke-width=".8"/>
+          <!-- Texte -->
+          <text x="160" y="37"
+            text-anchor="middle"
+            font-family="'Cormorant Garamond', Georgia, serif"
+            font-size="15"
+            font-style="italic"
+            letter-spacing="1.5"
+            fill="rgba(237,241,238,.92)">Ouverture le 6 mai 2026</text>
+        </svg>
+      </div>
       <div class="story-img-corner"></div>
     </div>
   </div>
@@ -906,30 +931,19 @@ footer { background: var(--sage-deep); }
       <h2 class="gallery-title serif reveal d1">Quelques créations</h2>
       <p class="gallery-sub reveal d2">Un aperçu de ce que nous pouvons créer ensemble.</p>
     </div>
-    <div class="filters reveal d2">
-      <button class="fbtn active" data-filter="all">Tous</button>
-      <button class="fbtn" data-filter="bouquet">Bouquets</button>
-      <button class="fbtn" data-filter="compo">Compositions</button>
-      <button class="fbtn" data-filter="deco">Décoration</button>
-    </div>
   </div>
 
   <div class="gallery-grid">
-    <!-- Bouquets ×6 — ratio 3/4 identique -->
-    <div class="gi reveal"    data-cat="bouquet"><img src="Bouquet-1.webp" alt="Bouquet Amalisa"><div class="gi-lbl">Bouquet</div></div>
-    <div class="gi reveal d1" data-cat="bouquet"><img src="Bouquet-2.webp" alt="Bouquet Amalisa"><div class="gi-lbl">Bouquet</div></div>
-    <div class="gi reveal d2" data-cat="bouquet"><img src="Bouquet-3.webp" alt="Bouquet Amalisa"><div class="gi-lbl">Bouquet</div></div>
-    <div class="gi reveal d1" data-cat="bouquet"><img src="Bouquet-4.webp" alt="Bouquet Amalisa"><div class="gi-lbl">Bouquet</div></div>
-    <div class="gi reveal d2" data-cat="bouquet"><img src="Bouquet-5.webp" alt="Bouquet Amalisa"><div class="gi-lbl">Bouquet</div></div>
-    <div class="gi reveal d3" data-cat="bouquet"><img src="Bouquet-6.webp" alt="Bouquet Amalisa"><div class="gi-lbl">Bouquet</div></div>
-    <!-- Compositions ×3 — ratio 4/5 -->
-    <div class="gi reveal"    data-cat="compo"><img src="Composition-1.webp" alt="Composition florale Amalisa"><div class="gi-lbl">Composition</div></div>
-    <div class="gi reveal d1" data-cat="compo"><img src="Composition-2.webp" alt="Composition florale Amalisa"><div class="gi-lbl">Composition</div></div>
-    <div class="gi reveal d2" data-cat="compo"><img src="Composition-3.webp" alt="Composition florale Amalisa"><div class="gi-lbl">Composition</div></div>
-    <!-- Décoration ×3 — ratio 4/3 -->
-    <div class="gi reveal"    data-cat="deco"><img src="decoration-1.webp" alt="Décoration florale Amalisa"><div class="gi-lbl">Décoration</div></div>
-    <div class="gi reveal d1" data-cat="deco"><img src="decoration-2.webp" alt="Décoration florale Amalisa"><div class="gi-lbl">Décoration</div></div>
-    <div class="gi reveal d2" data-cat="deco"><img src="decoration-3.webp" alt="Décoration florale Amalisa"><div class="gi-lbl">Décoration</div></div>
+    <div class="gi reveal"    ><img src="Bouquet-1.webp"  alt="Bouquet Amalisa"></div>
+    <div class="gi reveal d1" ><img src="Bouquet-2.webp"  alt="Bouquet Amalisa"></div>
+    <div class="gi reveal d2" ><img src="Bouquet-3.webp"  alt="Bouquet Amalisa"></div>
+    <div class="gi reveal d1" ><img src="Bouquet-4.webp"  alt="Bouquet Amalisa"></div>
+    <div class="gi reveal d2" ><img src="Bouquet-5.webp"  alt="Bouquet Amalisa"></div>
+    <div class="gi reveal d3" ><img src="Bouquet-6.webp"  alt="Bouquet Amalisa"></div>
+    <div class="gi reveal d1" ><img src="Bouquet-7.webp"  alt="Bouquet Amalisa"></div>
+    <div class="gi reveal d2" ><img src="Bouquet-8.webp"  alt="Bouquet Amalisa"></div>
+    <div class="gi reveal d3" ><img src="Bouquet-9.webp"  alt="Bouquet Amalisa"></div>
+    <div class="gi reveal d2" ><img src="Bouquet-10.webp" alt="Bouquet Amalisa"></div>
   </div>
 </section>
 
@@ -1092,18 +1106,6 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 /* Navbar */
 const nav=document.getElementById('navbar');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
-
-/* Gallery filter */
-document.querySelectorAll('.fbtn').forEach(btn=>{
-  btn.addEventListener('click',function(){
-    document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
-    this.classList.add('active');
-    const f=this.dataset.filter;
-    document.querySelectorAll('.gi').forEach(gi=>
-      gi.classList.toggle('hidden',f!=='all'&&gi.dataset.cat!==f)
-    );
-  });
-});
 
 /* Mobile menu */
 const burger=document.getElementById('navBurger');
