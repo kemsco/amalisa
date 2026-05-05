@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amalisa — Artisan Fleuriste</title>
+<link rel="icon" type="image/png" href="Amalisa-favicon.png">
+<link rel="apple-touch-icon" href="Amalisa-favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+
+/* ─── RESET ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Reset button to behave like a link */
+button { font-family: inherit; font-size: inherit; line-height: inherit; color: inherit; background: none; border: none; padding: 0; margin: 0; text-align: left; cursor: pointer; }
+
+:root {
+  --cream:      #edf1ee;
+  --sage:       #879d91;
+  --sage-mid:   #6d8880;
+  --sage-dark:  #5a7068;
+  --sage-deep:  #3d5048;
+  --sage-light: #b8ccc4;
+  --sage-pale:  #d9e4df;
+  --ink:        #1a1f1b;
+  --ink-soft:   #4a5549;
+  --border:     #c8d4cc;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--ink);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ─── BOTANICAL BACKGROUND ──────────────────────────────────── */
+.bg-botanical {
+  position: fixed;
+  inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .055;
+}
+
+/* ─── HEADER — identique au site ────────────────────────────── */
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 52px 40px 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.header-logo img {
+  height: 72px;
+  width: auto;
+  display: block;
+}
+
+/* ─── EYEBROW ────────────────────────────────────────────────── */
+.page-eyebrow {
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--sage);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 2;
+}
+.page-eyebrow::before,
+.page-eyebrow::after {
+  content: '';
+  display: block;
+  width: 28px; height: .5px;
+  background: var(--sage);
+}
+
+/* ─── TAGLINE ────────────────────────────────────────────────── */
+.page-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--ink-soft);
+  text-align: center;
+  margin-bottom: 56px;
+  line-height: 1.5;
+  position: relative;
+  z-index: 2;
+}
+
+/* ─── SEPARATEUR BOTANIQUE ───────────────────────────────────── */
+.floral-sep {
+  display: block;
+  margin: 0 auto 56px;
+  opacity: .35;
+  position: relative;
+  z-index: 2;
+}
+
+/* ─── MAIN CONTENT ───────────────────────────────────────────── */
+main {
+  width: 100%;
+  max-width: 480px;
+  padding: 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  z-index: 2;
+  flex: 1;
+}
+
+/* ─── ACTION BUTTON ──────────────────────────────────────────── */
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  padding: 20px 24px;
+  text-decoration: none;
+  background: transparent;
+  border: .5px solid var(--border);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background .22s ease, border-color .22s ease, transform .2s cubic-bezier(.16,1,.3,1);
+  position: relative;
+  overflow: hidden;
+}
+
+.action-btn:hover {
+  background: rgba(135,157,145,.08);
+  border-color: var(--sage);
+  transform: translateX(4px);
+}
+
+/* Variante principale — fond sage */
+.action-btn.primary {
+  background: var(--sage);
+  border-color: var(--sage);
+  color: var(--cream);
+}
+.action-btn.primary:hover {
+  background: var(--sage-dark);
+  border-color: var(--sage-dark);
+  transform: translateX(4px);
+}
+.action-btn.primary .btn-icon { color: var(--cream); }
+.action-btn.primary .btn-label { color: var(--cream); }
+.action-btn.primary .btn-sub   { color: rgba(237,241,238,.65); }
+.action-btn.primary .btn-arrow { color: rgba(237,241,238,.6); }
+
+/* ─── ICÔNE ──────────────────────────────────────────────────── */
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px; height: 36px;
+  flex-shrink: 0;
+  color: var(--sage);
+}
+
+/* ─── TEXTE ──────────────────────────────────────────────────── */
+.btn-text { flex: 1; }
+.btn-label {
+  font-size: 13px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  display: block;
+  margin-bottom: 3px;
+}
+.btn-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-soft);
+  display: block;
+}
+
+/* ─── FLÈCHE ─────────────────────────────────────────────────── */
+.btn-arrow {
+  color: var(--sage-light);
+  flex-shrink: 0;
+  transition: transform .2s cubic-bezier(.16,1,.3,1);
+}
+.action-btn:hover .btn-arrow {
+  transform: translateX(3px);
+}
+
+/* ─── MAP MODAL ──────────────────────────────────────────────── */
+.map-modal {
+  display: none;
+  position: fixed; inset: 0; z-index: 300;
+  align-items: flex-end; justify-content: center;
+  padding: 0 0 24px;
+}
+.map-modal.open { display: flex; }
+.map-modal-bg {
+  position: absolute; inset: 0;
+  background: rgba(26,31,27,.45);
+  backdrop-filter: blur(4px);
+}
+.map-modal-box {
+  position: relative; z-index: 2;
+  background: var(--cream);
+  width: 100%; max-width: 480px;
+  padding: 28px 24px 20px;
+  box-shadow: 0 -4px 40px rgba(26,31,27,.12);
+}
+.map-modal-title {
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--ink-soft); margin-bottom: 20px; text-align: center;
+}
+.map-option {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 20px;
+  text-decoration: none; color: var(--ink); font-size: 15px;
+  border: .5px solid var(--border); margin-bottom: 10px;
+  transition: background .2s, border-color .2s; cursor: pointer;
+}
+.map-option:hover { background: var(--sage-pale); border-color: var(--sage); }
+.map-modal-cancel {
+  display: block; width: 100%; text-align: center;
+  font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ink-soft); margin-top: 14px; cursor: pointer;
+  background: transparent; border: none; padding: 10px;
+}
+
+/* ─── FOOTER ─────────────────────────────────────────────────── */
+footer {
+  width: 100%;
+  padding: 52px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-address {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-soft);
+  text-align: center;
+  line-height: 1.8;
+}
+
+.footer-hours {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.hours-item { text-align: center; }
+.hours-day {
+  font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--sage); margin-bottom: 4px;
+}
+.hours-time {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px; color: var(--ink-soft);
+}
+
+.footer-sep { width: 40px; height: .5px; background: var(--border); }
+
+.footer-copy {
+  font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--sage-light);
+}
+
+/* ─── ANIMATIONS ─────────────────────────────────────────────── */
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+}
+.reveal.d1 { transition-delay: .08s; }
+.reveal.d2 { transition-delay: .16s; }
+.reveal.d3 { transition-delay: .24s; }
+.reveal.d4 { transition-delay: .32s; }
+.reveal.d5 { transition-delay: .40s; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ─── SCROLLBAR ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--sage-light); border-radius: 2px; }
+
+</style>
+</head>
+<body>
+
+<!-- Botanical background -->
+<svg class="bg-botanical" viewBox="0 0 480 900" fill="none" preserveAspectRatio="xMidYMid slice">
+  <path d="M420 900 Q405 780 388 700 Q365 600 390 490 Q408 408 380 300 Q356 210 400 120" stroke="#879d91" stroke-width="1.4"/>
+  <path d="M380 300 Q340 278 318 252" stroke="#879d91" stroke-width=".9"/>
+  <path d="M388 700 Q348 678 328 648" stroke="#879d91" stroke-width=".9"/>
+  <ellipse cx="315" cy="248" rx="20" ry="13" fill="none" stroke="#879d91" stroke-width=".9" transform="rotate(-22 315 248)"/>
+  <ellipse cx="326" cy="644" rx="17" ry="11" fill="none" stroke="#879d91" stroke-width=".9" transform="rotate(16 326 644)"/>
+  <path d="M400 120 Q428 108 440 122" stroke="#879d91" stroke-width=".7"/>
+  <ellipse cx="443" cy="125" rx="11" ry="7" fill="none" stroke="#879d91" stroke-width=".7" transform="rotate(-8 443 125)"/>
+  <circle cx="315" cy="248" r="2.5" fill="#879d91" opacity=".5"/>
+  <circle cx="326" cy="644" r="2.5" fill="#879d91" opacity=".5"/>
+  <circle cx="443" cy="125" r="1.8" fill="#879d91" opacity=".4"/>
+  <!-- côté gauche -->
+  <path d="M60 200 Q75 240 68 290" stroke="#879d91" stroke-width=".8"/>
+  <ellipse cx="67" cy="294" rx="8" ry="5" fill="none" stroke="#879d91" stroke-width=".7" transform="rotate(10 67 294)"/>
+  <path d="M40 500 Q58 535 50 580" stroke="#879d91" stroke-width=".8"/>
+  <ellipse cx="49" cy="583" rx="7" ry="5" fill="none" stroke="#879d91" stroke-width=".7" transform="rotate(-8 49 583)"/>
+</svg>
+
+<!-- ══ HEADER ════════════════════════════════════════════════════ -->
+<header class="reveal">
+  <div class="header-logo">
+    <img src="amalisa-logo.webp" alt="Amalisa — Artisan Fleuriste">
+  </div>
+</header>
+
+<!-- Eyebrow + tagline -->
+<div class="page-eyebrow reveal d1">Artisan Fleuriste · Vaires-sur-Marne</div>
+<p class="page-tagline reveal d2">L'art de dire ce qui ne se dit pas.</p>
+
+<!-- Séparateur botanique -->
+<svg class="floral-sep reveal d2" width="140" height="28" viewBox="0 0 140 28" fill="none">
+  <path d="M10 14 Q35 4 70 14 Q105 24 130 14" stroke="#879d91" stroke-width=".8"/>
+  <circle cx="70"  cy="14" r="3.5" fill="#879d91" opacity=".5"/>
+  <circle cx="22"  cy="11" r="2"   fill="#879d91" opacity=".3"/>
+  <circle cx="118" cy="11" r="2"   fill="#879d91" opacity=".3"/>
+</svg>
+
+<!-- ══ ACTIONS ═══════════════════════════════════════════════════ -->
+<main>
+
+  <!-- 1 — Accéder au site -->
+  <a class="action-btn primary reveal d2" href="https://amalisa.fr" target="_blank" rel="noopener">
+    <div class="btn-icon">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <circle cx="10" cy="10" r="8.5" stroke="currentColor" stroke-width=".9"/>
+        <path d="M10 1.5c0 0-3.5 3.5-3.5 8.5s3.5 8.5 3.5 8.5" stroke="currentColor" stroke-width=".9" fill="none"/>
+        <path d="M10 1.5c0 0 3.5 3.5 3.5 8.5s-3.5 8.5-3.5 8.5" stroke="currentColor" stroke-width=".9" fill="none"/>
+        <path d="M1.5 10h17" stroke="currentColor" stroke-width=".9"/>
+        <path d="M2.5 6.5h15M2.5 13.5h15" stroke="currentColor" stroke-width=".7"/>
+      </svg>
+    </div>
+    <div class="btn-text">
+      <span class="btn-label">Visiter le site</span>
+      <span class="btn-sub">amalisa.fr</span>
+    </div>
+    <div class="btn-arrow">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </a>
+
+  <!-- 2 — Appeler -->
+  <a class="action-btn reveal d3" href="tel:+33666101239">
+    <div class="btn-icon">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M4 2.5h3.5l1.5 4-2.25 2.25A11.5 11.5 0 0 0 13.75 14.75L16 12.5l4 1.5V17a2 2 0 0 1-2 2C8.163 19 1 11.837 1 3a2 2 0 0 1 2-2L4 2.5z" fill="var(--sage)" opacity=".85"/>
+      </svg>
+    </div>
+    <div class="btn-text">
+      <span class="btn-label">Nous appeler</span>
+      <span class="btn-sub">06 66 10 12 39</span>
+    </div>
+    <div class="btn-arrow">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </a>
+
+  <!-- 3 — Itinéraire -->
+  <button class="action-btn reveal d4" onclick="openMapModal()" style="font-family:inherit;font-size:inherit;text-align:left;background:transparent;width:100%;">
+    <div class="btn-icon" style="flex-shrink:0;">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M10 1.5a6 6 0 0 0-6 6c0 5 6 11 6 11s6-6 6-11a6 6 0 0 0-6-6z" stroke="var(--sage)" stroke-width=".9" fill="none"/>
+        <circle cx="10" cy="7.5" r="2" stroke="var(--sage)" stroke-width=".9" fill="none"/>
+      </svg>
+    </div>
+    <div class="btn-text">
+      <span class="btn-label">Nous trouver</span>
+      <span class="btn-sub">2 rue de la Gare, Vaires-sur-Marne</span>
+    </div>
+    <div class="btn-arrow">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </button>
+
+  <!-- 4 — Laisser un avis -->
+  <a class="action-btn reveal d5" href="https://g.page/r/Ce7KaHlsKKW2EBM/review" target="_blank" rel="noopener">
+    <div class="btn-icon">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M10 2l2.2 6.5H19l-5.6 4 2.2 6.5L10 15l-5.6 4 2.2-6.5L1 8.5h6.8L10 2z" stroke="var(--sage)" stroke-width=".9" fill="none" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="btn-text">
+      <span class="btn-label">Laisser un avis</span>
+      <span class="btn-sub">Votre expérience compte pour nous</span>
+    </div>
+    <div class="btn-arrow">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </a>
+
+</main>
+
+<!-- ══ MAP MODAL ══════════════════════════════════════════════════ -->
+<div class="map-modal" id="mapModal">
+  <div class="map-modal-bg" onclick="closeMapModal()"></div>
+  <div class="map-modal-box">
+    <p class="map-modal-title">Ouvrir dans…</p>
+    <a class="map-option" href="maps://maps.apple.com/?daddr=2+rue+de+la+Gare,+Vaires-sur-Marne,+77360">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect width="22" height="22" rx="5" fill="#1C1C1E"/><path d="M11 4l1.8 5.5H18l-4.6 3.3 1.8 5.5L11 15l-4.2 3.3 1.8-5.5L4 9.5h5.2L11 4z" fill="white"/></svg>
+      Apple Plans
+    </a>
+    <a class="map-option" href="https://www.google.com/maps/dir/?api=1&destination=2+rue+de+la+Gare,+Vaires-sur-Marne,+77360" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect width="22" height="22" rx="5" fill="#4285F4"/><path d="M11 5a4.5 4.5 0 0 0-4.5 4.5c0 3 4.5 7.5 4.5 7.5s4.5-4.5 4.5-7.5A4.5 4.5 0 0 0 11 5zm0 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" fill="white"/></svg>
+      Google Maps
+    </a>
+    <a class="map-option" href="https://waze.com/ul?q=2+rue+de+la+Gare+Vaires+sur+Marne&navigate=yes" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect width="22" height="22" rx="5" fill="#33CCFF"/><circle cx="11" cy="10" r="5" fill="white"/><circle cx="9.5" cy="9.2" r="1" fill="#33CCFF"/><circle cx="12.5" cy="9.2" r="1" fill="#33CCFF"/><path d="M9 12q2 1.5 4 0" stroke="#33CCFF" stroke-width="1" stroke-linecap="round"/></svg>
+      Waze
+    </a>
+    <button class="map-modal-cancel" onclick="closeMapModal()">Annuler</button>
+  </div>
+</div>
+
+<!-- ══ FOOTER ════════════════════════════════════════════════════ -->
+<footer>
+
+  <svg width="140" height="28" viewBox="0 0 140 28" fill="none" style="opacity:.3">
+    <path d="M10 14 Q35 24 70 14 Q105 4 130 14" stroke="#879d91" stroke-width=".8"/>
+    <circle cx="70"  cy="14" r="3" fill="#879d91" opacity=".5"/>
+    <circle cx="22"  cy="17" r="1.8" fill="#879d91" opacity=".3"/>
+    <circle cx="118" cy="17" r="1.8" fill="#879d91" opacity=".3"/>
+  </svg>
+
+  <address class="footer-address" style="font-style:normal">
+    2 rue de la Gare · Vaires-sur-Marne 77360<br>
+    <a href="mailto:contact@amalisa.fr" style="color:inherit;text-decoration:none;">contact@amalisa.fr</a>
+  </address>
+
+  <div class="footer-hours">
+    <div class="hours-item">
+      <div class="hours-day">Lun – Ven</div>
+      <div class="hours-time">9h–13h · 15h–19h30</div>
+    </div>
+    <div class="hours-item">
+      <div class="hours-day">Samedi</div>
+      <div class="hours-time">9h – 20h</div>
+    </div>
+    <div class="hours-item">
+      <div class="hours-day">Dimanche</div>
+      <div class="hours-time">9h – 13h</div>
+    </div>
+  </div>
+
+  <div class="footer-sep"></div>
+
+  <div class="footer-copy">© 2025 Amalisa · Artisan Fleuriste</div>
+
+</footer>
+
+<!-- ══ SCRIPTS ════════════════════════════════════════════════════ -->
+<script>
+/* Scroll reveal */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, { threshold: .1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+/* Map modal */
+const mapModal = document.getElementById('mapModal');
+function openMapModal() { mapModal.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeMapModal() { mapModal.classList.remove('open'); document.body.style.overflow = ''; }
+</script>
+</body>
+</html>
