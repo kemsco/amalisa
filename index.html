@@ -175,7 +175,6 @@ nav.scrolled .nav-logo img { height: 52px; }
 
 /* Mobile-only logo block — hidden on desktop */
 .mob-hero-logo { display: none; }
-
 #hero {
   min-height: 100vh; padding: 96px 60px 80px;
   display: grid; grid-template-columns: 1fr 440px;
@@ -567,45 +566,8 @@ nav.scrolled .nav-logo img { height: 52px; }
 }
 .hours-time { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: rgba(237,241,238,.72); }
 
-/* ─── FOOTER — DOUBLE SECTION ────────────────────────────────── */
+/* ─── FOOTER — barre légale uniquement ───────────────────────── */
 footer { background: var(--sage-deep); }
-.footer-top {
-  padding: 72px 60px 64px;
-  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px;
-  border-bottom: .5px solid rgba(237,241,238,.1);
-}
-
-/* Logo seul — texte retiré, blanc via filter */
-.footer-brand-logo {
-  display: flex; align-items: center; margin-bottom: 18px;
-}
-.footer-brand-logo img {
-  height: 52px; width: auto;
-  /* force le logo en blanc quel que soit le PNG original */
-  filter: brightness(0) invert(1);
-  opacity: .85;
-}
-.footer-tagline {
-  font-family: 'Cormorant Garamond', serif; font-style: italic;
-  font-size: 15px; color: rgba(237,241,238,.42);
-  line-height: 1.65; max-width: 220px; font-weight: 300;
-}
-
-.footer-col-title {
-  font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
-  color: rgba(237,241,238,.38); margin-bottom: 24px;
-}
-.footer-nav { list-style: none; display: flex; flex-direction: column; gap: 13px; }
-.footer-nav a {
-  text-decoration: none; font-size: 14px; color: rgba(237,241,238,.6); transition: color .2s;
-}
-.footer-nav a:hover { color: rgba(237,241,238,.9); }
-.footer-contact { display: flex; flex-direction: column; gap: 13px; }
-.footer-contact a, .footer-contact span {
-  font-size: 14px; color: rgba(237,241,238,.6);
-  text-decoration: none; transition: color .2s; line-height: 1.5;
-}
-.footer-contact a:hover { color: rgba(237,241,238,.9); }
 .footer-bottom {
   padding: 20px 60px;
   display: flex; justify-content: space-between; align-items: center;
@@ -662,21 +624,37 @@ footer { background: var(--sage-deep); }
     padding: 0; min-height: auto;
   }
 
-  /* logo mobile supprimé — la navbar fait le travail */
-  .mob-hero-logo { display: none; }
+  /* Grand logo visible dès l'arrivée — au-dessus du texte */
+  .mob-hero-logo {
+    display: flex; align-items: center; justify-content: center;
+    order: 0;
+    width: 100%;
+    padding: 80px 32px 52px; /* 80px = nav height + breathing room */
+    background: var(--cream);
+  }
+  .mob-hero-logo img {
+    height: 144px; /* ×3 vs nav logo 48px */
+    width: auto;
+    transition: height .3s cubic-bezier(.16,1,.3,1);
+  }
 
+  /* Quand on scroll : logo de la navbar prend le relais
+     Le mob-hero-logo sort du viewport naturellement */
   .hero-botanical { display: none; }
 
-  /* texte sous navbar */
+  /* Texte — espace entre logo et badge, et badge et titre */
   .hero-left {
     order: 1;
-    padding: 72px 24px 36px;
+    padding: 0 24px 40px;
     width: 100%;
   }
-  .hero-badge { margin-bottom: 24px; }
+  .hero-badge {
+    margin-bottom: 32px; /* plus d'espace badge → titre */
+    margin-top: 0;
+  }
   .hero-title {
     font-size: clamp(44px, 12vw, 64px);
-    margin-bottom: 20px;
+    margin-bottom: 24px;
   }
   .hero-title em { display: inline; }
   .hero-sub { font-size: 14px; max-width: 100%; margin-bottom: 0; }
@@ -770,22 +748,10 @@ footer { background: var(--sage-deep); }
   .contact-hours { flex-direction: column; align-items: center; gap: 20px; margin-top: 40px; }
 
   /* ── Footer ───────────────────────────────────────────────── */
-  .footer-top {
-    grid-template-columns: 1fr 1fr; padding: 48px 24px 36px; gap: 32px;
-  }
-  .footer-top > div:first-child {
-    grid-column: 1 / -1;
-    border-bottom: .5px solid rgba(237,241,238,.08); padding-bottom: 28px;
-  }
-  .footer-brand-logo img { height: 44px; }
-  .footer-tagline { font-size: 14px; max-width: 100%; }
   .footer-bottom {
     padding: 16px 24px; flex-direction: column; align-items: flex-start; gap: 10px;
   }
   .footer-legal { flex-direction: column; gap: 8px; }
-  /* gift frame on mobile */
-  .gift-frame { padding: 10px 10px 0; }
-  .gift-ribbon-h { top: calc(50% - 10px); }
 }
 
 /* ── Très petits écrans ───────────────────────────────────────── */
@@ -973,8 +939,7 @@ footer { background: var(--sage-deep); }
     <circle cx="118" cy="15" r="2.2" fill="#879d91" opacity=".3"/>
   </svg>
   <blockquote class="quote-text serif reveal">
-    "Je n'ai jamais créé deux bouquets identiques.<br>
-    Parce que je n'ai jamais rencontré deux personnes identiques."
+    "Il y a dans chaque fleur quelque chose que les mots n'arrivent pas à dire."
   </blockquote>
   <cite class="quote-author reveal d1">Elisabeth Rodrigues, Amalisa</cite>
   <svg width="140" height="36" viewBox="0 0 140 36" fill="none" aria-hidden="true" style="margin-top:56px">
@@ -1118,38 +1083,6 @@ footer { background: var(--sage-deep); }
 
 <!-- ══ FOOTER ════════════════════════════════════════════════════ -->
 <footer>
-  <div class="footer-top">
-
-    <!-- Logo seul — blanc via CSS filter -->
-    <div>
-      <div class="footer-brand-logo">
-        <img src="amalisa-logo.webp" alt="Amalisa">
-      </div>
-      <p class="footer-tagline">L'art floral artisanal,<br>au cœur de Vaires-sur-Marne.</p>
-    </div>
-
-    <div>
-      <div class="footer-col-title">Navigation</div>
-      <ul class="footer-nav">
-        <li><a href="#gallery">Nos créations</a></li>
-        <li><a href="#elisabeth">À propos d'Elisabeth</a></li>
-        <li><a href="#ateliers">Les ateliers</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <div class="footer-col-title">Contact</div>
-      <div class="footer-contact">
-        <a href="tel:+33666101239">06 66 10 12 39</a>
-        <a href="mailto:contact@amalisa.fr">contact@amalisa.fr</a>
-        <span class="footer-addr-link" onclick="openMapModal()">
-          2 rue de la Gare<br>Vaires-sur-Marne 77360
-        </span>
-      </div>
-    </div>
-
-  </div>
   <div class="footer-bottom">
     <div class="footer-copy">© 2025 Amalisa · Artisan Fleuriste · Vaires-sur-Marne</div>
     <div class="footer-legal">
